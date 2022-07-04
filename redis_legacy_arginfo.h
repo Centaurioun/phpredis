@@ -1,5 +1,5 @@
 /* This is a generated file, edit the .stub.php file instead.
- * Stub hash: 9671c30926e8d581a126833360b123c8ae2dd913 */
+ * Stub hash: 5bf2a2332b2cdb1625fa60d857c55bf2e17b6120 */
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_class_Redis___construct, 0, 0, 0)
 	ZEND_ARG_INFO(0, options)
@@ -1327,3 +1327,30 @@ static const zend_function_entry class_Redis_methods[] = {
 	ZEND_ME(Redis, zunionstore, arginfo_class_Redis_zunionstore, ZEND_ACC_PUBLIC)
 	ZEND_FE_END
 };
+
+
+static const zend_function_entry class_RedisException_methods[] = {
+	ZEND_FE_END
+};
+
+static zend_class_entry *register_class_Redis(void)
+{
+	zend_class_entry ce, *class_entry;
+
+	INIT_CLASS_ENTRY(ce, "Redis", class_Redis_methods);
+	class_entry = zend_register_internal_class_ex(&ce, NULL);
+
+	zend_mark_function_parameter_as_sensitive(&class_entry->function_table, "auth", 0);
+
+	return class_entry;
+}
+
+static zend_class_entry *register_class_RedisException(zend_class_entry *class_entry_RuntimeException)
+{
+	zend_class_entry ce, *class_entry;
+
+	INIT_CLASS_ENTRY(ce, "RedisException", class_RedisException_methods);
+	class_entry = zend_register_internal_class_ex(&ce, class_entry_RuntimeException);
+
+	return class_entry;
+}
